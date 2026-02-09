@@ -1150,3 +1150,39 @@
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
+        
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0;}
+    .card{background:#fff;border:1px solid #e6e6e6;border-radius:12px;padding:14px;}
+    .stat{display:flex;align-items:center;gap:10px;}
+    .stat i{font-size:20px;}
+    .tabs{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0;}
+    .tabbtn{border:1px solid #e6e6e6;background:#fff;padding:10px 12px;border-radius:10px;cursor:pointer;}
+    .tabbtn.active{background:#111827;color:#fff;border-color:#111827;}
+    .list{display:grid;gap:12px;}
+    .appt{background:#fff;border:1px solid #e6e6e6;border-radius:12px;padding:14px;}
+    .appt-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;}
+    .badge{padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;text-transform:capitalize;}
+    .b-upcoming{background:#dcfce7;color:#166534;}
+    .b-scheduled{background:#e0f2fe;color:#075985;}
+    .b-completed{background:#ede9fe;color:#5b21b6;}
+    .b-cancelled{background:#fee2e2;color:#991b1b;}
+    .meta{color:#6b7280;font-size:13px;margin-top:6px;}
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+    .btn{border:0;border-radius:10px;padding:10px 12px;cursor:pointer;}
+    .btn-primary{background:#2563eb;color:#fff;}
+    .btn-warn{background:#f59e0b;color:#111827;}
+    .btn-danger{background:#ef4444;color:#fff;}
+    .btn-outline{background:#fff;border:1px solid #e6e6e6;}
+    .msg{margin:14px 0;padding:12px;border-radius:10px;border:1px solid #e6e6e6;background:#fff;}
+    .msg.success{background:#dcfce7;border-color:#bbf7d0;color:#166534;}
+    .msg.error{background:#fee2e2;border-color:#fecaca;color:#991b1b;}
+    .msg.info{background:#e0f2fe;border-color:#bae6fd;color:#075985;}
+    .empty{padding:30px;text-align:center;color:#6b7280;}
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:14px;}
+    .modal.active{display:flex;}
+    .modal-box{background:#fff;border-radius:14px;max-width:520px;width:100%;padding:16px;border:1px solid #e6e6e6;}
+    .modal-head{display:flex;justify-content:space-between;align-items:center;}
+    .close{background:none;border:0;font-size:22px;cursor:pointer;}
+    label{font-weight:600;display:block;margin-top:10px;}
+    input,select,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;margin-top:6px;}
+    @media (max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
