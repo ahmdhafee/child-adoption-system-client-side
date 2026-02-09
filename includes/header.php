@@ -7,12 +7,12 @@
             </a>
             
             <ul class="nav-links">
-                <li><a href="index.php#home">Home</a></li>
-                <li><a href="index.php#process">Process</a></li>
-                <li><a href="index.php#features">Features</a></li>
+                <li><a href="index.php#home" style="color: #5D8AA8;" >Home</a></li>
+                <li><a href="index.php#process" style="color: #5D8AA8;">Process</a></li>
+                <li><a href="index.php#features" style="color: #5D8AA8;">Features</a></li>
                 
-                <li><a href="register.php" class="btn btn-secondary">Start Registration</a></li>
-                <li><a href="login.php" class="btn btn-secondary" id="btnlogin">login</a></li>
+                <li><a href="register.php" class="btn btn-secondary" style="color:#FAF3E0 ; padding:7px; ">Start Registration</a></li>
+                <li><a href="login.php" class="btn btn-secondary" id="btnlogin"style="color:#FAF3E0 ; padding: 7px">login</a></li>
             </ul>
             
             <button class="mobile-menu-btn">

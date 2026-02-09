@@ -1,14 +1,14 @@
 :root {
-    /* Color palette inspired by "Family Bridge" concept */
-    --primary: #8B4513; /* SaddleBrown - warm, earthy, stable */
-    --secondary: #D2691E; /* Chocolate - warm, inviting, nurturing */
-    --accent: #5D8AA8; /* Air Force Blue - trustworthy, calm */
-    --light: #FAF3E0; /* Warm ivory - soft, welcoming */
-    --dark: #2F4F4F; /* DarkSlateGray - professional, stable */
-    --success: #4CAF50; /* Green - growth, positive */
-    --warning: #FF9800; /* Orange - attention, warmth */
-    --gray: #A9A9A9; /* Cool gray for text */
-    --light-gray: #F8F8F8; /* Very light gray for backgrounds */
+    
+    --primary: #8B4513; 
+    --secondary: #D2691E; 
+    --accent: #5D8AA8; 
+    --light: #FAF3E0;
+    --dark: #2F4F4F; 
+    --success: #4CAF50;
+    --warning: #FF9800; 
+    --gray: #A9A9A9; 
+    --light-gray: #F8F8F8; 
     --shadow: 0 4px 8px rgba(139, 69, 19, 0.15);
     --transition: all 0.3s ease;
     --border-radius: 8px;
@@ -134,7 +134,7 @@ p {
     font-size: 1.1rem;
 }
 
-/* Header and Navigation */
+
 header {
     background-color: transparent;
     box-shadow: var(--shadow);
@@ -192,7 +192,7 @@ nav {
 
 .nav-links a {
 text-decoration: none;
-color: var(--dark); /* Changed from var(--light) to var(--dark) */
+color: var(--light); 
 font-weight: 600;
 transition: var(--transition);
 padding: 8px 8px;

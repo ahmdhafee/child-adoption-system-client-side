@@ -284,13 +284,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="form-row">
           <div class="form-col">
-            <label class="required">Husband Age (21–45)</label>
+            <label class="required">Husband Age</label>
             <input type="number" id="eligHusbandAge" class="form-control" min="21" max="45" required>
             <div class="error" id="eligHusbandAgeError"></div>
           </div>
 
           <div class="form-col">
-            <label class="required">Wife Age (21–45)</label>
+            <label class="required">Wife Age</label>
             <input type="number" id="eligWifeAge" class="form-control" min="21" max="45" required>
             <div class="error" id="eligWifeAgeError"></div>
           </div>
@@ -298,13 +298,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="form-row">
           <div class="form-col">
-            <label class="required">Marriage Duration (Years) (≥ 3)</label>
+            <label class="required">Marriage Duration</label>
             <input type="number" id="marriageYears" class="form-control" min="0" required>
             <div class="error" id="marriageYearsError"></div>
           </div>
 
           <div class="form-col">
-            <label class="required">Combined Monthly Income (LKR) (≥ 60000)</label>
+            <label class="required">Combined Monthly Income (LKR)</label>
             <input type="number" id="monthlyIncome" class="form-control" min="0" required>
             <div class="error" id="monthlyIncomeError"></div>
           </div>
@@ -325,7 +325,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </section>
 
-  <!-- REGISTRATION (STEP 2) -->
+  
   <section class="form-section" id="registrationSection" style="display:none;">
     <div class="container">
       <div class="progress-bar-container">
@@ -341,7 +341,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="form-container">
         <form id="registrationFormData" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" novalidate>
 
-          <!-- ✅ hidden eligibility fields MUST be inside the form -->
+          
           <input type="hidden" name="marriage_years" id="hiddenMarriageYears">
           <input type="hidden" name="monthly_income" id="hiddenMonthlyIncome">
           <input type="hidden" name="eligibility_result" id="hiddenEligibilityResult">
@@ -529,35 +529,73 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </section>
 
-  <!-- PAYMENT -->
+  
   <section class="payment-section" id="paymentSection" style="display:none;">
-    <div class="container">
-      <div class="progress-bar-container">
-        <div class="progress-bar">
-          <div class="progress-fill" style="width:100%;"></div>
-        </div>
-        <div class="progress-text">
-          <span>Step 4 of 4: Payment</span>
-          <span>100% Complete</span>
-        </div>
+  <div class="container">
+
+    <!-- Progress -->
+    <div class="progress-bar-container">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:100%;"></div>
       </div>
-
-      <div class="payment-container">
-        <h2>Mandatory Registration Payment</h2>
-        <p class="form-note">This is a simulation. Click Pay to submit the registration.</p>
-
-        <div class="payment-info">
-          <h3>Payment Details</h3>
-          <div class="payment-amount">LKR 2000</div>
-        </div>
-
-        <div class="section-navigation">
-          <button class="btn btn-secondary" id="backToConfirm">Back to Confirm</button>
-          <button class="btn btn-primary" id="simulatePayment">Pay & Submit</button>
-        </div>
+      <div class="progress-text">
+        <span>Step 4 of 4: Payment</span>
+        <span>100% Complete</span>
       </div>
     </div>
-  </section>
+
+    <!-- Payment Card -->
+    <div class="payment-container">
+      <h2>Mandatory Registration Payment</h2>
+      <p class="form-note">
+        This is a <strong>simulation</strong>. Enter card details and click Pay to submit.
+      </p>
+
+      <!-- Amount -->
+      <div class="payment-info">
+        <h3>Amount to Pay</h3>
+        <div class="payment-amount">LKR 2000</div>
+      </div>
+
+      <!-- Card Form -->
+      <form id="cardPaymentForm">
+
+        <div class="form-group">
+          <label>Card Holder Name</label>
+          <input type="text" id="cardName" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label>Card Number</label>
+          <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+        </div>
+
+        <div class="row">
+          <div class="form-group half">
+            <label>Expiry Date</label>
+            <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required>
+          </div>
+
+          <div class="form-group half">
+            <label>CVV</label>
+            <input type="password" id="cvv" placeholder="123" maxlength="3" required>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="section-navigation">
+          <button type="button" class="btn btn-secondary" id="backToConfirm">
+            Back to Confirm
+          </button>
+          <button type="submit" class="btn btn-primary">
+            Pay & Submit
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
 
   <!-- CONFIRMATION -->
   <section class="confirmation-section" id="confirmationSection" style="display:none;">
@@ -652,7 +690,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div><strong>Not Eligible.</strong> You cannot continue to registration.</div>`;
       continueBtn.style.display = 'none';
 
-      // IMPORTANT: reset hidden eligibility so server blocks registration
+    
       document.getElementById('hiddenMarriageYears').value = marriageYears;
       document.getElementById('hiddenMonthlyIncome').value = income;
       document.getElementById('hiddenEligibilityResult').value = 'not_eligible';
@@ -660,20 +698,20 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    // Eligible
+    
     resultBox.style.display = 'block';
     resultBox.className = 'alert alert-success';
     resultBox.innerHTML = `<i class="fas fa-check-circle"></i>
       <div><strong>Eligible!</strong> You may continue.</div>`;
     continueBtn.style.display = 'block';
 
-    // ✅ Fill hidden inputs inside form (SERVER will read these)
+    
     document.getElementById('hiddenMarriageYears').value = marriageYears;
     document.getElementById('hiddenMonthlyIncome').value = income;
     document.getElementById('hiddenEligibilityResult').value = 'eligible';
     document.getElementById('hiddenEligibilityStatus').value = 'checked';
 
-    // auto-fill registration ages
+    
     document.getElementById('husbandAge').value = hAge;
     document.getElementById('wifeAge').value = wAge;
   });
@@ -683,12 +721,12 @@ document.addEventListener('DOMContentLoaded', function () {
     showStep(2);
   });
 
-  // Back
+  /
   document.getElementById('backToEligibility')?.addEventListener('click', () => showStep(1));
   document.getElementById('backToRegistration')?.addEventListener('click', () => showStep(2));
   document.getElementById('backToConfirm')?.addEventListener('click', () => showStep(3));
 
-  // Proceed to confirm
+  
   document.getElementById('proceedToConfirm')?.addEventListener('click', function(){
     if (!validateRegistrationForm()) return;
     populateConfirm();
@@ -709,7 +747,7 @@ document.addEventListener('DOMContentLoaded', function () {
     showStep(4);
   });
 
-  // Payment -> Submit
+  
   document.getElementById('simulatePayment')?.addEventListener('click', function(){
     const form = document.getElementById('registrationFormData');
     if (!form) return;
@@ -811,6 +849,37 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+
+
+
+document.getElementById('cardPaymentForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+  const expiry = document.getElementById('expiry').value;
+  const cvv = document.getElementById('cvv').value;
+
+  if (cardNumber.length !== 16) {
+    alert('Invalid card number');
+    return;
+  }
+
+  if (!expiry.includes('/')) {
+    alert('Invalid expiry date');
+    return;
+  }
+
+  if (cvv.length !== 3) {
+    alert('Invalid CVV');
+    return;
+  }
+
+  alert('✅ Payment successful! Registration submitted.');
+
+
+});
+
+
 </script>
 
 </body>
